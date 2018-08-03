@@ -33,6 +33,7 @@ module.exports = {
    */
   plugins: [
     { src: 'plugins/plugins.js', ssr: false },
+    { src: 'plugins/vuex-persistedstate.js', ssr: false },
   ],
   transition: {
     name: 'router-fade',
