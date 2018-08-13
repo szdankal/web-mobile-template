@@ -14,6 +14,7 @@
 ├─api          #网络层
 ├─components  #存放可复用的组件
 ├─configs     #存放全局的配置文件
+├─filters     #全局过滤器
 ├─layouts     #nuxt.js定义默认模板及错误页的文件夹 
 ├─pages       #存放Vue页面
 │  └─sample   #存放常用模版组件、页面
@@ -26,6 +27,9 @@
 
 ```
 
+## 3.集成第三方ui框架
+
+* cude-ui（https://didi.github.io/cube-ui/#/zh-CN/docs/quick-start）
 
 
 
