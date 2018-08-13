@@ -14,6 +14,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'stylesheet', href: 'https://unpkg.com/cube-ui/lib/cube.min.css' },
     ],
   },
   /*
@@ -48,10 +49,14 @@ module.exports = {
    ** Build configuration
    */
   build: {
+    plugins: [
+    ],
     /*
      ** You can extend webpack config here
      */
     extend(config, ctx) {
+      // eslint-disable-next-line no-param-reassign
+      config.resolve.alias['cube-ui'] = 'cube-ui/lib'
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',

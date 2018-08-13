@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign,consistent-return */
 /**
  * Created by IvanCai on 2017/4/19.
  */
