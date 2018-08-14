@@ -20,8 +20,11 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#3B8070' },
-
+  loading: { color: '#e8864c' },
+  transition: {
+    name: 'router-fade',
+    mode: 'out-in',
+  },
   /*
    ** Global CSS
    */
@@ -36,10 +39,6 @@ module.exports = {
     { src: 'plugins/plugins.js', ssr: false },
     { src: 'plugins/vuex-persistedstate.js', ssr: false },
   ],
-  transition: {
-    name: 'router-fade',
-    mode: 'out-in',
-  },
   /*
    ** Nuxt.js modules
    */

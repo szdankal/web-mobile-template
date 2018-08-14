@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt/>
+    <nuxt v-transition/>
   </div>
 </template>
 

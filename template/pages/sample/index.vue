@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="container">
     <p>
       Dankal Template
     </p>
@@ -28,10 +28,17 @@ export default {
       }],
     }
   },
+  methods: {
+    changeHandler() {
+      this.$router.push('test')
+    },
+  },
 }
 </script>
 
 <style scoped lang="scss">
+  .container{width: 100vw;height: 100vh}
   p{text-align: center;font-size: .35rem;padding: .3rem 0;font-weight: bold}
   ul li{padding: 6px 10px}
+  .tab-bar{position: absolute;left: 0;bottom:0;width: 100vw;background:#FFF}
 </style>

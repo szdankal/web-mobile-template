@@ -13,9 +13,14 @@ import Vue from 'vue'
 
 export default {
   name: 'AddressPicker',
+  transitions: 'touchPoint',
   data() {
     return {
       addressPicker: '',
+      vuegConfig: {
+        forwardAnim: 'touchPoint', // options所有配置可以写在这个对象里，会覆盖全局的配置
+        duration: '.3',
+      },
     }
   },
 
