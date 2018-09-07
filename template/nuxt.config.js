@@ -14,7 +14,6 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
-      { rel: 'stylesheet', href: 'https://unpkg.com/cube-ui/lib/cube.min.css' },
     ],
   },
   /*
