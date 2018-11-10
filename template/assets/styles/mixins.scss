@@ -1,3 +1,26 @@
-/**
-global mixin styles
- */
+@import './variables.scss';
+
+// 统一字体
+@mixin font(
+  $font-size: 0.16rem,
+  $font-weight: 0,
+  $color: $main-color,
+  $line-height: auto
+) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  line-height: $line-height;
+}
+// Flex 布局
+@mixin flex-container(
+  $flex-direction: row,
+  $align-items: center,
+  $justify-content: space-between
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
