@@ -11,12 +11,17 @@ const dkAxios = axios.create({
   timeout: 10000, // 设置超时时间
 })
 dkAxios.interceptors.request.use((config) => {
-  config.headers = { token: utils.getCookie('pagerbox_token') }
+  window.showLoading()
+  config.headers = { token: utils.getCookie('access_token') }
   return config;
 }, error => Promise.reject(error));
 
 
-dkAxios.interceptors.response.use(response => response, (error) => {
+dkAxios.interceptors.response.use((response) => {
+  window.hideLoading()
+  return response
+}, (error) => {
+  window.hideLoading()
   const { status, data } = error.response
   switch (status) {
     case 401:

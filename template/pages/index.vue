@@ -11,9 +11,9 @@ export default {
     return {
     }
   },
-  fetch({ redirect }) {
-    redirect(302, './sample')
-  },
+  // fetch({ redirect }) {
+  //   // redirect(302, './sample')
+  // },
 }
 </script>
 

@@ -15,8 +15,8 @@
 
 <script>
 import env from '~/configs/enviroment'
-import Axios from 'axios'
 import ImageUpload from '~/components/image-upload.vue'
+import { getUploadToekn } from '../../api/common';
 
 export default {
   name: 'Upload',
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     async  getUploadToken() {
-      const { data } = await Axios.get('https://api-template.dankal.cn/v1/app/communal/qiniu')
+      const { data } = await getUploadToekn()
       this.token = data.token
     },
   },
