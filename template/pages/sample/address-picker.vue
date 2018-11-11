@@ -45,7 +45,7 @@ export default {
       this.addressPicker.show()
     },
     selectHandle(selectedVal, selectedIndex, selectedText) {
-      console.log(selectedText, '省市区数组')
+      // console.log(selectedText, '省市区数组')
     },
   },
 }
