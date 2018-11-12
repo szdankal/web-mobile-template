@@ -14,3 +14,20 @@ Vue.use(Cube)
 Vue.config.errorHandler = (err, vm, info) => {
   console.log(err, 'err')
 }
+
+
+Vue.directive('debounce', {
+  inserted(el, binding) {
+    let timer;
+
+    el.addEventListener('click', () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      timer = setTimeout(() => {
+        binding.value();
+      }, 300);
+    });
+  },
+});

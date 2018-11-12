@@ -1,7 +1,7 @@
 <template>
   <div>
     <cube-button
-      @click="showAddressPicker">选择地址</cube-button>
+      v-debounce="showAddressPicker">选择地址</cube-button>
   </div>
 </template>
 
