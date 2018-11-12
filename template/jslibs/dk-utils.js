@@ -22,7 +22,7 @@ export default {
   },
   setCookie(cname, cvalue, exdays) {
     const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
     const expires = `expires=${d.toGMTString()}`;
     document.cookie = `${cname}=${cvalue}; ${expires};Path=/`;
   },
@@ -32,12 +32,12 @@ export default {
    * @param array 数组
    */
   removeOfArray(index, array) {
-    const newArray = []
+    const newArray = [];
     array.forEach((value, $index) => {
       if (index !== $index) {
-        newArray.push(value)
+        newArray.push(value);
       }
-    })
-    return newArray
+    });
+    return newArray;
   },
-}
+};
