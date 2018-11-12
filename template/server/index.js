@@ -1,8 +1,9 @@
 const express = require('express')
-const Builder = require('nuxt').Builder
-const Nuxt = require('nuxt').Nuxt
+const { Builder } = require('nuxt')
+const { Nuxt } = require('nuxt')
 const cookieParser = require('cookie-parser')
 const wxlogin = require('./middleware/wx-login')
+
 const app = express()
 const host = process.env.HOST || '0.0.0.0'
 const port = process.env.NODE_ENV === 'production' ? 80 : 3000
@@ -24,7 +25,7 @@ if (config.dev) {
   builder.build()
 }
 app.use(cookieParser())
-//app.use(wxlogin)
+// app.use(wxlogin)
 // Give nuxt middleware to express
 app.use(nuxt.render)
 // Listen the server
