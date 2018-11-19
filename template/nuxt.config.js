@@ -1,4 +1,4 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
 module.exports = {
   mode: 'spa', // 移动端项目都为spa模式
@@ -9,11 +9,18 @@ module.exports = {
     title: pkg.name,
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1,user-scalable=no' },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1,user-scalable=no',
+      },
       { hid: 'description', name: 'description', content: pkg.description },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    script: [
+      {
+        src:
+          'https://webapi.amap.com/maps?v=1.4.10&key=8d316f00a97d1a70b223694f6a18b91f',
+      },
     ],
   },
   /*
@@ -27,9 +34,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [
-    'assets/styles/app.scss',
-  ],
+  css: ['assets/styles/app.scss'],
 
   /*
    ** Plugins to load before mounting the App
@@ -47,22 +52,21 @@ module.exports = {
    ** Build configuration
    */
   build: {
-    plugins: [
-    ],
+    plugins: [],
     /*
      ** You can extend webpack config here
      */
     extend(config, ctx) {
       // eslint-disable-next-line no-param-reassign
-      config.resolve.alias['cube-ui'] = 'cube-ui/lib'
+      config.resolve.alias['cube-ui'] = 'cube-ui/lib';
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
-        })
+        });
       }
     },
   },
-}
+};

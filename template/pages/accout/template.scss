@@ -1,0 +1,148 @@
+$highlight-color: #4a90e2;
+$default-color: #c1c1c1;
+
+.form-child-block {
+  .form-child-item {
+    margin-bottom: 0.5rem;
+
+    span {
+      display: block;
+      font-size: 0.32rem;
+    }
+
+    input {
+      width: 100%;
+
+      font-size: 0.28rem;
+      padding-top: 0.16rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid #cfcfcf;
+    }
+  }
+
+  .code {
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      input {
+        flex: 1;
+      }
+
+      .form-clock-button {
+        display: block;
+        height: 0.81rem;
+
+        color: #ffffff;
+        line-height: 0.81rem;
+
+        padding: 0rem 0.3rem;
+        margin-left: 0.1rem;
+        border-radius: 0.05rem;
+        background-color: $default-color;
+
+        transition: all 0.3s;
+
+        @media screen and (max-width: 360px) {
+          button {
+            width: 3.5rem;
+          }
+        }
+      }
+
+      .form-clock-button.active {
+        background-color: $highlight-color;
+      }
+    }
+  }
+}
+
+.form-action-button {
+  width: 6.75rem;
+  height: 0.92rem;
+
+  text-align: center;
+  line-height: 0.92rem;
+
+  background: $default-color;
+  border-radius: 0.05rem;
+  margin-bottom: 0.4rem;
+
+  transition: all 0.3s;
+
+  span {
+    font-size: 0.32rem;
+    color: #ffffff;
+  }
+}
+
+.form-action-button.active {
+  background-color: $highlight-color;
+}
+
+// OAuth 授权登录样式
+.oauth-block {
+  .oauth-line-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.68rem;
+
+    &::before,
+    &::after {
+      display: inline-block;
+      content: '';
+      width: 0.86rem;
+      height: 1px;
+      background-color: $default-color;
+    }
+
+    span {
+      font-size: 0.26rem;
+      color: $default-color;
+      padding: 0rem 0.3rem;
+    }
+  }
+
+  .oauth-icon-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.68rem;
+
+    img {
+      width: 0.76rem;
+    }
+  }
+
+  .oauth-protocal-block {
+    text-align: center;
+
+    span {
+      font-size: 0.24rem;
+    }
+
+    span:nth-of-type(1) {
+      color: #666666;
+    }
+
+    span:nth-of-type(2) {
+      color: #141414;
+    }
+  }
+}
+
+// Form 切换的动画效果
+.form-enter-active,
+.form-leave-active {
+  transition: all 0.5s;
+}
+
+.form-enter {
+  transform: translate(100%);
+}
+
+.form-leave-to {
+  transform: translate(-100%);
+}
