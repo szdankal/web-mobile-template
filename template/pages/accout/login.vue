@@ -34,7 +34,7 @@
         <div
           class="form-action-button"
           :class="{active: activate}"
-          @click="network().form()"
+          @click="handlerUserLogin"
         >
           <span>登陆</span>
         </div>
@@ -119,6 +119,12 @@ export default {
       }
 
       this.handleClockdown();
+    },
+
+    handlerUserLogin() {
+      console.log('====================================');
+      console.warn('login');
+      console.log('====================================');
     },
   },
 };
