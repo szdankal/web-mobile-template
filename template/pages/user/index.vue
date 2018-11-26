@@ -25,16 +25,16 @@ export default {
         {
           // icon: require(''),
           name: '我的优惠劵',
-          path: '/pages/user/coupon/user-coupons',
+          path: '',
         },
         {
           // icon: require(''),
           name: '我的地址',
-          path: '/pages/user/address/address-new',
+          path: '',
         },
         {
           name: '意见反馈',
-          path: '/pages/user/feedback',
+          path: '',
         },
       ],
     };

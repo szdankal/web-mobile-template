@@ -33,6 +33,22 @@ export default {
           name: '商品搜索',
         },
         {
+          path: '/recharge',
+          name: '充值',
+        },
+        {
+          path: '/accout',
+          name: '登录注册',
+        },
+        {
+          path: '/mall',
+          name: '商城',
+        },
+        {
+          path: 'sign',
+          name: '签到',
+        },
+        {
           path: '/user',
           name: '个人中心',
         },
@@ -56,8 +72,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../assets/styles/mixins.scss';
+
+.container {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
 
 .main-title {
   text-align: center;
@@ -80,7 +101,7 @@ export default {
   margin: auto;
   background-color: #ffffff;
 
-  box-shadow: 0.02rem 0.02rem 0.04rem rgba($color: #000000, $alpha: 0.08);
+  box-shadow: 0rem 0rem 0.1rem 0rem rgba($color: #000000, $alpha: 0.08);
 }
 
 .navigator-block + .navigator-block {

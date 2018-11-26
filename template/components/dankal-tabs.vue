@@ -8,7 +8,7 @@
       :style="{'flex-basis': `${100 / options.length}%`}"
       @click="handlerUpdateDot(index)"
     >
-      <text>{{ item.name }}</text>
+      <slot :data="item" />
     </div>
     <div
       class="tab-slider"
@@ -60,10 +60,10 @@ export default {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 30rpx 0rpx;
+  padding: 0.3rem 0rem;
 
   background-color: #ffffff;
-  border-bottom: 1rpx solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
 
   .tab-item {
     text-align: center;
@@ -75,9 +75,9 @@ export default {
 
   .tab-slider {
     position: absolute;
-    width: 120rpx;
-    height: 4rpx;
-    bottom: 0rpx;
+    width: 1.2rem;
+    height: 0.04rem;
+    bottom: 0rem;
     background-color: #108ee9;
     transform: translate(-50%);
 
