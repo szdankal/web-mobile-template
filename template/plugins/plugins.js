@@ -18,16 +18,20 @@ Vue.config.errorHandler = (err, vm, info) => {
 
 Vue.directive('debounce', {
   inserted(el, binding) {
-    let timer;
+    el._timer = null;
 
     el.addEventListener('click', () => {
-      if (timer) {
-        clearTimeout(timer);
+      if (el._timer) {
+        clearTimeout(el._timer);
       }
 
-      timer = setTimeout(() => {
+      el._timer = setTimeout(() => {
         binding.value();
       }, 300);
     });
+  },
+  unbind(el, binding) {
+    clearTimeout(el._timer);
+    el._timer = null;
   },
 });
