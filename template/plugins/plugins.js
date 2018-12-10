@@ -1,4 +1,4 @@
-/* eslint-disable no-new,no-unused-vars */
+/* eslint-disable no-new,no-unused-vars,no-param-reassign,no-underscore-dangle */
 import '../jslibs/rem'
 import Vue from 'vue'
 import Cube from 'cube-ui'
