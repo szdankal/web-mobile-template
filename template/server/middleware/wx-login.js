@@ -1,44 +1,53 @@
 /* eslint-disable prefer-destructuring */
+/* eslint-disable */
 const axios = require('axios')
 const { apiDomain } = require('../../configs/enviroment')
-const FINAL_URL = require('../../configs/wx-login').FINAL_URL
-
+const {FINAL_URL ,APP_DOMAIN} = require('../../configs/wx-login')
 module.exports = function (req, res, next) {
-  let token = '',
-    ua = req.headers['user-agent']
-  if (ua.indexOf('MicroMessenger') == -1) { // 如果不是微信浏览器并且支持普通浏览器环境运行，不做微信授权登陆
+  if(req.originalUrl.indexOf('_nuxt')!== -1){ //如果是资源文件的请求，直接返回不做处理
     next()
     return
   }
+  let token = '',
+    url = req.path
+  ua = req.headers['user-agent'] //通过ua是否包含MicroMessenger可以判断是不是在微信浏览器环境运行
   try {
-    token = req.cookies.projectName_token
-    console.log(token, 'token')
+    token = req.cookies.token
   } catch (e) {
   }
   const code = req.query.code
   if (!token) { // token为空,需要进行微信登录
     if (!code) { // code也为空,说明还没有进行登录授权重定向
-      res.redirect(FINAL_URL)
+      res.redirect(`${FINAL_URL}&redirect_uri=${encodeURIComponent(APP_DOMAIN+req.originalUrl)}#wechat_redirect`)
     } else { // 已进行登录授权,将获得code与我们服务器交换token
+      console.log(code, 'code')
+      console.log(req.originalUrl, 'url')
       axios({
-        url: `${apiDomain}api/wechat/login`,
+        url: `${apiDomain}app/merchant/login_wx_h5`,
         method: 'POST',
-        data: `code=${code}`,
+        data: {code},
       }).then((response) => {
         const serverRes = response.data
-        if (serverRes.state == '0001') {
-          const token = serverRes.result.user_token
-          res.cookie('projectName_token', token, { expires: new Date(Date.now() + 7 * 24 * 3600 * 1000) }); // 设置token存储有效期，一般设置为一星期,最长不能超过后台设置的有效期
+        console.log(serverRes, 'response')
+        if (response.status === 200) {
+          res.cookie('token', serverRes.access_token, { expires: new Date(Date.now() + 7 * 24 * 3600 * 1000) });
           next()
-        } else {
-          // 服务器登录错误，请根据具体判断是否需要重新进行登录授权,一般是因为code失效需要再次授权
-          res.redirect(FINAL_URL)
         }
       }).catch((error) => {
-        console.log(error, 'error')
+        console.log(error.response, 'error')
+        next()
       })
     }
   } else {
-    next()
+    axios.get(`${apiDomain}app/User`,{headers: { 'X-Access-Token': token } }).then(result => {
+      console.log('success')
+      next()
+    }).catch(err=>{
+      const status = err.response.status
+      console.log(err.response.status,'err')
+      if(status===401 || status ===412){
+        res.redirect(`${FINAL_URL}&redirect_uri=${encodeURIComponent(APP_DOMAIN+req.originalUrl)}#wechat_redirect`)
+      }
+    })
   }
 }

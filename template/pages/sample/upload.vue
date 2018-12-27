@@ -15,8 +15,8 @@
 
 <script>
 import env from '~/configs/enviroment'
-import ImageUpload from '~/components/image-upload.vue'
-import { getUploadToekn } from '../../api/common';
+import ImageUpload from '~/components/image-upload'
+import { getUploadToekn } from '~/api/common';
 
 export default {
   name: 'Upload',

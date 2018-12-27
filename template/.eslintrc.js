@@ -17,14 +17,6 @@ module.exports = {
   ],
   // required to lint *.vue files
   plugins: ['vue'],
-  // check if imports actually resolve
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: 'build/webpack.base.conf.js',
-      },
-    },
-  },
   // add your custom rules here
   rules: {
     // don't require .vue extension when importing
@@ -34,7 +26,7 @@ module.exports = {
       vue: 'never'
     }],
     'semi':0,
-    //Since you're working on all operating system, 
+    //Since you're working on all operating system,
     "linebreak-style": 0,
 
     // disallow reassignment of function parameters
@@ -68,10 +60,15 @@ module.exports = {
           resolve: {
             alias: {
               '~': __dirname,
-            },
-          },
-        },
+              '@':__dirname
+
+            }
+          }
+        }
       },
-    },
-  },
+      "nuxt-import": {
+        "extensions": [".mjs", ".js", ".vue", ".graphql", ".json"]
+      }
+    }
+  }
 };
